@@ -8,12 +8,12 @@ import {
   routerMiddleware
 } from 'react-router-redux';
 import logger from 'redux-logger';
-import bordaReducer from '../reducers';
+import * as reducers from '../reducers';
 
 const createStore = (history) => {
   return reduxCreateStore(
     combineReducers({
-      borda: bordaReducer,
+      ...reducers,
       router: routerReducer
     }),
     applyMiddleware(

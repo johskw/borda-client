@@ -1,2 +1,1 @@
-const bordaReducer = () => ({});
-export default bordaReducer;
+export { default as eventForm } from './eventForm';
