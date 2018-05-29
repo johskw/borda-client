@@ -54,6 +54,9 @@ export default (state = initialState, action) => {
         num: state.num - 1
       };
 
+    case actionType.CLEAR_FORM:
+      return initialState;
+
     default:
       return state;
   }

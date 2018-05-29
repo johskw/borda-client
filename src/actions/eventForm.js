@@ -4,7 +4,8 @@ export const actionType = {
   INPUT_CHOICE: 'INPUT_CHOICE',
   INPUT_PASSWORD: 'INPUT_PASSWORD',
   ADD_CHOICE: 'ADD_CHOICE',
-  REMOVE_CHOICE: 'REMOVE_CHOICE'
+  REMOVE_CHOICE: 'REMOVE_CHOICE',
+  CLEAR_FORM: 'CLEAR_FORM'
 };
 
 export const inputTheme = (text) => ({
@@ -42,4 +43,8 @@ export const addChoice = () => ({
 
 export const removeChoice = () => ({
   type: actionType.REMOVE_CHOICE
+});
+
+export const clearForm = () => ({
+  type: actionType.CLEAR_FORM
 });
