@@ -13,7 +13,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Top} />
             <Route path="/events/new" component={EventForm} />
-            <Route path="/event" component={Event} />
+            <Route path="/events" component={Event} />
           </Switch>
       </Fragment>
     );

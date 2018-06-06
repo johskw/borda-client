@@ -22,7 +22,7 @@ const ChoiceFields = ({num, choices, onChange}) => {
     );
     fields.push(field);
   }
-  return fields
+  return fields;
 };
 
 const EventForm = (props) => (

@@ -1,8 +1,18 @@
 import { connect } from 'react-redux';
+import * as actions from '../actions/event';
 import Event from '../components/Event';
 
 const mapStateToProps = (state) => ({
-  event: state.event
+  event: state.event.event
 });
 
-export default connect(mapStateToProps)(Event);
+const mapDispatchToProps = (dispatch) => ({
+  onMount() {
+    dispatch(actions.getEvent());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Event);

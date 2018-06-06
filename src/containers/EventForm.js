@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => ({
       password: props.password
     }));
     dispatch(actions.clearForm());
-    dispatch(push('/event'));
+    dispatch(push('/events'));
   }
 });
 

@@ -1,16 +1,29 @@
 import { actionType } from '../actions/event';
 
 const initialState = {
-  theme: '',
-  detail: '',
-  choices: ['', ''],
-  password: ''
+  event: {
+    theme: '',
+    detail: '',
+    choices: ['', ''],
+    password: ''
+  },
+  error: false
 };
 
 export default (state = initialState, action ) => {
   switch (action.type) {
+    case actionType.STERT_GET_REQUEST:
+      return initialState;
+    case actionType.RECEIVE_EVENT:
+      return {
+        event: action.payload.event,
+        error: action.payload.error
+      };
     case actionType.CREATE_EVENT:
-      return action.payload.event;
+      return {
+        ...state,
+        event: action.payload.event
+      };
     default:
       return state;
   }

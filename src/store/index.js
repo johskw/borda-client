@@ -8,6 +8,7 @@ import {
   routerMiddleware
 } from 'react-router-redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import * as reducers from '../reducers';
 
 const createStore = (history) => {
@@ -18,6 +19,7 @@ const createStore = (history) => {
     }),
     applyMiddleware(
       logger,
+      thunk,
       routerMiddleware(history)
     )
   );
