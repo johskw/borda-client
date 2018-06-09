@@ -3,7 +3,7 @@ import axios from 'axios';
 export const actionType = {
   CREATE_EVENT: 'CREATE_EVENT',
   STERT_GET_REQUEST: 'START_GET_REQUEST',
-  RECEIVE_EVENT: 'RECEIVE_EVENT',
+  RECEIVE_EVENT: 'RECEIVE_EVENT'
 };
 
 const startGetRequest = () => ({
