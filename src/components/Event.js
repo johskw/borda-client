@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Event extends Component {
   componentWillMount() {
-    this.props.onMount();
+    this.props.onMount(this.props.match.params.id);
   }
 
   render() {
@@ -14,7 +14,7 @@ export default class Event extends Component {
         <p>{event.detail}</p>
         <ul>
           {event.choices.map((choice, i) => (
-            <li key={i}>{choice}</li>
+            <li key={i}>{choice.name}</li>
           ))}
         </ul>
       </div>

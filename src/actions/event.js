@@ -18,10 +18,10 @@ const receiveEvent = (event, error) => ({
   }
 });
 
-export const getEvent = () => {
+export const getEvent = (id) => {
   return dispatch => {
     dispatch(startGetRequest());
-    axios.get('http://localhost:8080/events').then(res => {
+    axios.get(`http://localhost:8080/events/${id}`).then(res => {
       dispatch(receiveEvent(res.data, false));
     }).catch((err) => {
       dispatch(receiveEvent({}, true));

@@ -7,8 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onMount() {
-    dispatch(actions.getEvent());
+  onMount(id) {
+    dispatch(actions.getEvent(id));
   }
 });
 

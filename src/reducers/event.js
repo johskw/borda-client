@@ -4,8 +4,10 @@ const initialState = {
   event: {
     theme: '',
     detail: '',
-    choices: ['', ''],
-    password: ''
+    choices: [
+      { id: '', name: '' },
+      { id: '', name: '' }
+    ]
   },
   error: false
 };

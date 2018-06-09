@@ -65,7 +65,7 @@ export const postEvent = (event) => {
       event
     }).then(res => {
       dispatch(clearForm());
-      dispatch(push('/events'));
+      dispatch(push(`/events/${res.data._id}`));
     });
   };
 }
