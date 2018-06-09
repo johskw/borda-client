@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-const ChoiceFields = ({num, choices, onChange}) => {
+const ChoiceFields = ({num, choices, errors, onChange}) => {
   const fields = [];
   for (let i = 0; i < num; i++) {
     const field = (
@@ -18,6 +18,7 @@ const ChoiceFields = ({num, choices, onChange}) => {
         <Input value={choices[i]}
           onChange={(e) => onChange(i, e.target.value)}
         />
+        {errors[`choices.${i}.name`]}
       </FormControl>
     );
     fields.push(field);
@@ -36,6 +37,7 @@ const EventForm = (props) => (
           <Input value={props.theme}
             onChange={(e) => props.onChangeTheme(e.target.value)}
           />
+          {props.errors.theme}
         </FormControl>
         <FormControl style={{ width: '100%', marginBottom: '30px' }}>
           <InputLabel>
@@ -64,7 +66,7 @@ const EventForm = (props) => (
             －
           </Button>
         </div>
-        <ChoiceFields num={props.num} choices={props.choices}
+        <ChoiceFields num={props.num} choices={props.choices} errors={props.errors}
           onChange={props.onChangeChoice}
         />
         <FormControl style={{ width: '100%', marginBottom: '10px' }}>
@@ -74,6 +76,7 @@ const EventForm = (props) => (
           <Input type="password" value={props.password}
             onChange={(e) => props.onChangePassword(e.target.value)}
           />
+          {props.errors.password}
         </FormControl>
         <div style={{ textAlign: 'center', paddingTop: '20px' }}>
           <Button variant="raised" color="primary" size="large"

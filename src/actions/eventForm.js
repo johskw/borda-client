@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { push } from 'react-router-redux';
+import { formatValidationError } from '../utils/errorFormatter';
 
 export const actionType = {
   INPUT_THEME: 'INPUT_THEME',
@@ -10,7 +11,8 @@ export const actionType = {
   REMOVE_CHOICE: 'REMOVE_CHOICE',
   CLEAR_FORM: 'CLEAR_FORM',
   START_POST_REQUEST: 'START_POST_REQUEST',
-  CREATE_EVENT: 'CRAETE_EVENT'
+  CREATE_EVENT: 'CRAETE_EVENT',
+  ADD_ERRORS: 'ADD_ERRORS'
 };
 
 export const inputTheme = (text) => ({
@@ -58,14 +60,28 @@ const clearForm = () => ({
   type: actionType.CLEAR_FORM
 });
 
+const addErrors = (errors) => ({
+  type: actionType.ADD_ERRORS,
+  payload: {
+    errors
+  }
+});
+
 export const postEvent = (event) => {
   return dispatch => {
     dispatch(startPostRequest());
     axios.post('http://localhost:8080/events', {
-      event
+      ...event
     }).then(res => {
       dispatch(clearForm());
       dispatch(push(`/events/${res.data._id}`));
+    }).catch(err => {
+      if (err.response && err.response.status === 400) {
+        const errors = formatValidationError(err);
+        dispatch(addErrors(errors));
+        return;
+      }
+      console.log(err);
     });
   };
 }

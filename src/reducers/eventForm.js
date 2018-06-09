@@ -5,7 +5,8 @@ const initialState = {
   detail: '',
   choices: ['', ''],
   password: '',
-  num: 2
+  num: 2,
+  errors: {}
 };
 
 export default (state = initialState, action) => {
@@ -56,6 +57,12 @@ export default (state = initialState, action) => {
 
     case actionType.CLEAR_FORM:
       return initialState;
+
+    case actionType.ADD_ERRORS:
+      return {
+        ...state,
+        errors: action.payload.errors
+      };
 
     default:
       return state;
