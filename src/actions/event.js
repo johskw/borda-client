@@ -21,7 +21,7 @@ const receiveEvent = (event, error) => ({
 export const getEvent = (id) => {
   return dispatch => {
     dispatch(startGetRequest());
-    axios.get(`http://localhost:8080/events/${id}`).then(res => {
+    axios.get(`http://127.0.0.1:8080/api/events/${id}`).then(res => {
       dispatch(receiveEvent(res.data, false));
     }).catch((err) => {
       dispatch(receiveEvent({}, true));

@@ -70,7 +70,7 @@ const addErrors = (errors) => ({
 export const postEvent = (event) => {
   return dispatch => {
     dispatch(startPostRequest());
-    axios.post('http://localhost:8080/events', {
+    axios.post('http://127.0.0.1:8080/api/events', {
       ...event
     }).then(res => {
       dispatch(clearForm());
